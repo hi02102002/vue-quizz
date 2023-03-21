@@ -86,6 +86,7 @@ const handelFetch = async () => {
       isLoading.value = false
     })
     .catch((e) => {
+      console.log(e)
       isLoading.value = false
     })
 }
