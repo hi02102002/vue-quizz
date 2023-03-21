@@ -1,25 +1,25 @@
-# quizz-vue
+# Vue Quizz
 
-This template should help get you started developing with Vue 3 in Vite.
+This project first time learn simple concept about Vue + Vue router + Pinia
 
-## Recommended IDE Setup
+## Features
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- Create questions base on your options
+- Save your options in localstoreage
+- Show correct answers, incorrect answers when you submitted
 
-## Type Support for `.vue` Imports in TS
+## API
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+[The Trivia API](https://the-trivia-api.com/) 
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## Live Preview
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+[Vue Quizz](https://vue-quizz.vercel.app/) 
 
-## Customize configuration
+## Image Preview 
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+![screencapture-vue-quizz-vercel-app-2023-03-21-21_20_50](https://user-images.githubusercontent.com/84460646/226638916-889f6434-9196-4ad1-84d9-8293e013c572.png)
+![screencapture-vue-quizz-vercel-app-questions-2023-03-21-21_21_40](https://user-images.githubusercontent.com/84460646/226639028-b7f48088-a7e1-4e61-89b5-cce41437e2ce.png)
 
 ## Project Setup
 
