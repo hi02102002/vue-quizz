@@ -8,6 +8,15 @@ This project first time learn simple concept about Vue + Vue router + Pinia
 - Save your options in localstoreage
 - Show correct answers, incorrect answers when you submitted
 
+## Technologies
+
+- Vue
+- Native ui
+- Vite
+- Vue router
+- Pinia
+- Typescript
+
 ## API
 
 [The Trivia API](https://the-trivia-api.com/) 
