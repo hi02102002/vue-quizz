@@ -28,8 +28,12 @@ const type = computed((): ButtonProps['type'] => {
       return 'error'
     }
     return 'primary'
+  } else {
+    if (props.correctAnswer === props.answer && isSubmitted.value) {
+      return 'primary'
+    }
+    return 'default'
   }
-  return 'default'
 })
 </script>
 <template>
