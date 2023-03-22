@@ -70,7 +70,6 @@ export const useAnswersStore = defineStore('answers', () => {
 
   const numIncorrect = computed(() => results.value.filter((r) => !r.isTrue).length)
 
-
   const handelSubmit = () => {
     results.value = answers.value.map((a) => {
       return {

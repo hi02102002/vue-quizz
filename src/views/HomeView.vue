@@ -1,12 +1,32 @@
 <template>
   <n-layout class="home-page">
     <n-layout-header class="header" :position="'absolute'">
-      <router-link :to="'/'">
-        <n-space :align="'end'" :justify="'center'" :wrapItem="false" :size="[2, 2]">
-          <logo-icon :height="36" :width="36" />
-          <n-text class="logo-text"> ue Quizz </n-text>
-        </n-space>
-      </router-link>
+      <n-space
+        :align="'center'"
+        :justify="'space-between'"
+        :style="{
+          width: '100%'
+        }"
+      >
+        <router-link :to="'/'">
+          <n-space :align="'end'" :justify="'center'" :wrapItem="false" :size="[2, 2]">
+            <logo-icon :height="36" :width="36" />
+            <n-text class="logo-text"> ue Quizz </n-text>
+          </n-space>
+        </router-link>
+        <n-switch
+          :value="themeStore.theme.value.name === 'light' ? true : false"
+          :default-value="'dark'"
+          @update:value="themeStore.handelToggleTheme"
+        >
+          <template #checked-icon>
+            <light-icon />
+          </template>
+          <template #unchecked-icon>
+            <dark-icon />
+          </template>
+        </n-switch>
+      </n-space>
     </n-layout-header>
     <n-layout-content class="home-page-content">
       <n-space :vertical="true" :size="[16, 16]">
@@ -29,8 +49,7 @@
                   isChoseDifficulty(d)
                     ? {
                         borderColor: '#41b883',
-                        textColor: '#41b883',
-                        color: '#fff'
+                        textColor: '#41b883'
                       }
                     : undefined
                 "
@@ -39,6 +58,24 @@
               </n-tag>
             </div>
           </n-space>
+        </n-space>
+        <n-space vertical :size="[0, 0]">
+          <NH4>
+            <n-text>Number questions</n-text>
+          </NH4>
+          <n-select
+            :value="store.limit.value"
+            :onUpdate:value="handelUpdateLimit"
+            :options="
+              [5, 10, 15, 20].map((e) => ({
+                key: `${e}`,
+                type: e,
+                label: `${e}`,
+                value: e
+              }))
+            "
+            :placement="'bottom'"
+          />
         </n-space>
         <n-space vertical :size="[0, 0]">
           <NH4>
@@ -56,8 +93,7 @@
                   isCategoryChose(getValueCategory(key))
                     ? {
                         borderColor: '#41b883',
-                        textColor: '#41b883',
-                        color: '#fff'
+                        textColor: '#41b883'
                       }
                     : undefined
                 "
@@ -98,9 +134,12 @@
 </template>
 
 <script setup lang="ts">
+import DarkIcon from '@/components/icons/DarkIcon.vue'
+import LightIcon from '@/components/icons/LightIcon.vue'
 import LogoIcon from '@/components/icons/LogoIcon.vue'
 import { CATEGORIES, DIFFICULTIES, TAGS } from '@/constants'
 import { useOptionsStore } from '@/stores/options'
+import { useThemeStore } from '@/stores/theme'
 import {
   NAlert,
   NButton,
@@ -109,6 +148,7 @@ import {
   NLayoutContent,
   NSelect,
   NSpace,
+  NSwitch,
   NTag,
   NText
 } from 'naive-ui'
@@ -120,8 +160,11 @@ const {
   handelUpdateTags,
   isCategoryChose,
   isChoseDifficulty,
+  handelUpdateLimit,
   ...store
 } = useOptionsStore()
+
+const themeStore = useThemeStore()
 
 const tags = computed(() => store.tags)
 const getValueCategory = (category: string) => {

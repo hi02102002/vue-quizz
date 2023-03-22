@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useAnswersStore } from '@/stores/answers';
-import { NButton, type ButtonProps } from 'naive-ui';
-import { computed } from 'vue';
+import { useAnswersStore } from '@/stores/answers'
+import { NButton, type ButtonProps } from 'naive-ui'
+import { computed } from 'vue'
 const props = defineProps<{
   answer: string
   index: number

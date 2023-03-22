@@ -25,26 +25,27 @@
         </n-space>
         <n-space vertical :size="[18, 18]">
           <n-space v-if="isSubmitted" :justify="'center'" :align="'center'">
-            <n-text>Your scored  {{ answersStore.numCorrect }} / {{ questionsStore.questions.length }} correct answer.</n-text>
+            <n-text
+              >Your scored {{ answersStore.numCorrect }} /
+              {{ questionsStore.questions.length }} correct answer.</n-text
+            >
           </n-space>
-            <n-space :justify="'center'" :align="'center'">
-              <n-button :type="'primary'" @click="() => router.push('/')" tertiary
-                >Back to home</n-button
-              >
-              <n-button
-                @click="answersStore.handelSubmit"
-                v-if="questionsStore.questions.length > 0 && !isSubmitted"
-                :type="'success'"
-                >Submit your answers</n-button
-              >
-              <n-button v-if="isSubmitted" @click="handelPlayAgain" :type="'success'"
-                >Play again</n-button
-              >
-            
+          <n-space :justify="'center'" :align="'center'">
+            <n-button :type="'primary'" @click="() => router.push('/')" tertiary
+              >Back to home</n-button
+            >
+            <n-button
+              @click="answersStore.handelSubmit"
+              v-if="questionsStore.questions.length > 0 && !isSubmitted"
+              :type="'success'"
+              >Submit your answers</n-button
+            >
+            <n-button v-if="isSubmitted" @click="handelPlayAgain" :type="'success'"
+              >Play again</n-button
+            >
           </n-space>
-         </n-space>
+        </n-space>
       </n-space>
-    
     </n-layout-content>
   </n-layout>
 </template>
@@ -54,15 +55,15 @@ import CQuestion from '@/components/CQuestion.vue'
 import { useAnswersStore } from '@/stores/answers'
 import { useQuestionsStore } from '@/stores/questions'
 import {
-NButton,
-NEmpty,
-NH3,
-NLayout,
-NLayoutContent,
-NLayoutHeader,
-NSpace,
-NSpin,
-NText
+  NButton,
+  NEmpty,
+  NH3,
+  NLayout,
+  NLayoutContent,
+  NLayoutHeader,
+  NSpace,
+  NSpin,
+  NText
 } from 'naive-ui'
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useRouter } from 'vue-router'

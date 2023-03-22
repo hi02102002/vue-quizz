@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { lightTheme, NBackTop, NConfigProvider, NMessageProvider, type GlobalTheme } from 'naive-ui'
-import { ref } from 'vue'
+import { NBackTop, NConfigProvider, NMessageProvider } from 'naive-ui'
 import { RouterView } from 'vue-router'
-const theme = ref<GlobalTheme>(lightTheme)
+import { useThemeStore } from './stores/theme'
+const themeStore = useThemeStore()
 </script>
 
 <template>
@@ -12,7 +12,7 @@ const theme = ref<GlobalTheme>(lightTheme)
         primaryColor: '#41b883'
       }
     }"
-    :theme="theme"
+    :theme="themeStore.theme.value"
   >
     <n-message-provider>
       <router-view />

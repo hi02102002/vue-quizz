@@ -8,7 +8,7 @@ export const useOptionsStore = defineStore('options', () => {
       ? JSON.parse(localStorage.getItem('difficulty') || 'easy')
       : 'easy'
   )
-  const limit = ref<number>(10)
+  const limit = ref<number>((JSON.parse(localStorage.getItem('limit') as string) as number) || 10)
 
   const handelChooseCategory = (category: string) => {
     if (isCategoryChose(category)) {
@@ -34,6 +34,10 @@ export const useOptionsStore = defineStore('options', () => {
     return difficulty.value === type
   }
 
+  const handelUpdateLimit = (l: number) => {
+    limit.value = l
+  }
+
   watch(categories, (categoriesVal) => {
     localStorage.setItem('categories', JSON.stringify(categoriesVal))
   })
@@ -44,6 +48,10 @@ export const useOptionsStore = defineStore('options', () => {
 
   watch(difficulty, (difficultyVal) => {
     localStorage.setItem('difficulty', JSON.stringify(difficultyVal))
+  })
+
+  watch(limit, (limitVal) => {
+    localStorage.setItem('limit', JSON.stringify(limitVal))
   })
 
   const tagsComputed = computed(() => tags)
@@ -63,6 +71,7 @@ export const useOptionsStore = defineStore('options', () => {
     handelChooseCategory,
     handelUpdateTags,
     handelChoseDifficulty,
-    isChoseDifficulty
+    isChoseDifficulty,
+    handelUpdateLimit
   }
 })
