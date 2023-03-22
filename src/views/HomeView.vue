@@ -141,18 +141,18 @@ import { CATEGORIES, DIFFICULTIES, TAGS } from '@/constants'
 import { useOptionsStore } from '@/stores/options'
 import { useThemeStore } from '@/stores/theme'
 import {
-  NAlert,
-  NButton,
-  NH4,
-  NLayout,
-  NLayoutContent,
-  NSelect,
-  NSpace,
-  NSwitch,
-  NTag,
-  NText
+NAlert,
+NButton,
+NH4,
+NLayout,
+NLayoutContent,
+NSelect,
+NSpace,
+NSwitch,
+NTag,
+NText
 } from 'naive-ui'
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { RouterLink } from 'vue-router'
 const {
   handelChooseCategory,
@@ -170,6 +170,11 @@ const tags = computed(() => store.tags)
 const getValueCategory = (category: string) => {
   return category.replace(' & ', '_and_').replace(' ', '_').toLocaleLowerCase()
 }
+
+onMounted(() => {
+  document.title="Vue Quizz"
+})
+
 </script>
 
 <style scoped>

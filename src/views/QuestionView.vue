@@ -55,15 +55,15 @@ import CQuestion from '@/components/CQuestion.vue'
 import { useAnswersStore } from '@/stores/answers'
 import { useQuestionsStore } from '@/stores/questions'
 import {
-  NButton,
-  NEmpty,
-  NH3,
-  NLayout,
-  NLayoutContent,
-  NLayoutHeader,
-  NSpace,
-  NSpin,
-  NText
+NButton,
+NEmpty,
+NH3,
+NLayout,
+NLayoutContent,
+NLayoutHeader,
+NSpace,
+NSpin,
+NText
 } from 'naive-ui'
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
@@ -92,7 +92,10 @@ const handelFetch = async () => {
     })
 }
 
-onMounted(handelFetch)
+onMounted(() => {
+  handelFetch()
+  document.title="Questions"
+})
 
 onUnmounted(handelPlayAgain)
 </script>
